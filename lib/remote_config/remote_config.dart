@@ -16,6 +16,36 @@ class RemoteConfig {
     return _remoteConfig.getAll();
   }
 
+
+  Future<dynamic> getByKeyString({required String key}) async {
+    try {
+      await _remoteConfig.fetchAndActivate();
+      return _remoteConfig.getString(key);
+      
+    } catch (e) {
+      return null;
+    }
+  }
+  Future<dynamic> getByKeyJson({required String key}) async {
+    try {
+      await _remoteConfig.fetchAndActivate();
+      return json.decode(_remoteConfig.getString(key));
+      
+    } catch (e) {
+      return null;
+    }
+  }
+  Future<dynamic> getByKeyBool({required String key}) async {
+    try {
+      await _remoteConfig.fetchAndActivate();
+      return _remoteConfig.getBool(key);
+      
+    } catch (e) {
+      return null;
+    }
+  }
+
+
   Future<dynamic> getByKey({required String key}) async {
     try {
       await _remoteConfig.fetchAndActivate();
