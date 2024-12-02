@@ -104,12 +104,7 @@ class FirebaseNotificationMessaging {
             requestAlertPermission: false,
             requestBadgePermission: false,
             requestSoundPermission: false,
-            onDidReceiveLocalNotification: (
-              int id,
-              String? title,
-              String? body,
-              String? payload,
-            ) async {});
+          );
 
     final InitializationSettings initializationSettings =
         InitializationSettings(
